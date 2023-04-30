@@ -1,0 +1,98 @@
+/*
+SPACING SYSTEM (px) - for design purposes
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px) - for design purposes
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+/* 
+COLOR SYSTEM -
+MAIN COLOR: #087f5b
+TEXT COLOR: #343a40
+*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #343a40;
+  /* basically resetting the line height to 1 as some elements have default line height more than 1 */
+  line-height: 1;
+}
+
+.accordion {
+  width: 700px;
+  margin: 100px auto;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+.item {
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 24px;
+  align-items: center;
+  row-gap: 32px;
+}
+
+/* by default all of the box will be hidden but the user clicks on the arrow button the box is set to visible(answer appears) and the content becomes more visually appealing for the user to feel like this is an important content.*/
+.hidden-box {
+  grid-column: 2;
+  display: none;
+}
+
+.number,
+.question {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.number {
+  color: #ced4da;
+}
+
+.icon-down {
+  width: 24px;
+  height: 24px;
+  stroke: #087f5b;
+}
+
+.explaination {
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.bullet {
+  color: #868e96;
+  margin-left: 14px;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+/* when the user clicks the arrow button to see the answer, we will add open class to its parent element(i.e. item) so that we can style that box. */
+
+.item.open {
+  border-top: 4px solid #087f5b;
+}
+
+.item.open .hidden-box {
+  display: block;
+}
+
+.item.open .question,
+.item.open .number {
+  color: #087f5b;
+}
